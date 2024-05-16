@@ -13,6 +13,7 @@
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		FA2986BB2BC6E62B00DBC47F /* AboutListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2986BA2BC6E62B00DBC47F /* AboutListView.swift */; };
 		FA2986BD2BC6E8FD00DBC47F /* AboutScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2986BC2BC6E8FD00DBC47F /* AboutScreen.swift */; };
+		FA50AA4E2BE53077009B0DA4 /* ArticlesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50AA4D2BE53077009B0DA4 /* ArticlesScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +38,7 @@
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA2986BA2BC6E62B00DBC47F /* AboutListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutListView.swift; sourceTree = "<group>"; };
 		FA2986BC2BC6E8FD00DBC47F /* AboutScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutScreen.swift; sourceTree = "<group>"; };
+		FA50AA4D2BE53077009B0DA4 /* ArticlesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +85,7 @@
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
-				FA2986BA2BC6E62B00DBC47F /* AboutListView.swift */,
-				FA2986BC2BC6E8FD00DBC47F /* AboutScreen.swift */,
+				FA50AA4C2BE53059009B0DA4 /* Screens */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -94,6 +95,16 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA50AA4C2BE53059009B0DA4 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				FA2986BA2BC6E62B00DBC47F /* AboutListView.swift */,
+				FA2986BC2BC6E8FD00DBC47F /* AboutScreen.swift */,
+				FA50AA4D2BE53077009B0DA4 /* ArticlesScreen.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA50AA4E2BE53077009B0DA4 /* ArticlesScreen.swift in Sources */,
 				FA2986BB2BC6E62B00DBC47F /* AboutListView.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
