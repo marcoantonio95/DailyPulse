@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     id("co.touchlab.skie") version "0.7.1"
+    kotlin("plugin.serialization") version "1.9.20"
 }
 
 kotlin {
@@ -12,7 +13,7 @@ kotlin {
             }
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -27,6 +28,10 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(libs.kotlinx.coroutines.core)
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.serialization.kotlinx.json)
+            implementation(libs.kotlinx.datetime)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -35,8 +40,31 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation(libs.androidx.lifecycle.viewmodel.ktx)
+                implementation(libs.ktor.client.okhttp)
             }
         }
+
+        val iosArm64Main by getting {
+            dependencies {
+                implementation(libs.ktor.client.darwin)
+            }
+        }
+        val iosArm64Test by getting {
+            dependencies {
+                implementation(libs.ktor.client.darwin)
+            }
+        }
+        val iosX64Main by getting {
+            dependencies {
+                implementation(libs.ktor.client.darwin)
+            }
+        }
+        val iosSimulatorArm64Main by getting {
+            dependencies {
+                implementation(libs.ktor.client.darwin)
+            }
+        }
+
     }
 }
 
