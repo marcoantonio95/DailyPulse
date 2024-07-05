@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     id("co.touchlab.skie") version "0.7.1"
     kotlin("plugin.serialization") version "1.9.20"
+    alias(libs.plugins.sqlDelight)
 }
 
 kotlin {
@@ -33,6 +34,7 @@ kotlin {
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.kotlinx.datetime)
             implementation(libs.koin.core)
+            implementation(libs.sql.coroutines)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -42,27 +44,36 @@ kotlin {
             dependencies {
                 implementation(libs.androidx.lifecycle.viewmodel.ktx)
                 implementation(libs.ktor.client.okhttp)
+                implementation(libs.sql.android.driver)
             }
         }
 
         val iosArm64Main by getting {
             dependencies {
                 implementation(libs.ktor.client.darwin)
+                implementation(libs.sql.native.driver)
+                implementation(libs.stately.common)
             }
         }
         val iosArm64Test by getting {
             dependencies {
                 implementation(libs.ktor.client.darwin)
+                implementation(libs.sql.native.driver)
+                implementation(libs.stately.common)
             }
         }
         val iosX64Main by getting {
             dependencies {
                 implementation(libs.ktor.client.darwin)
+                implementation(libs.sql.native.driver)
+                implementation(libs.stately.common)
             }
         }
         val iosSimulatorArm64Main by getting {
             dependencies {
                 implementation(libs.ktor.client.darwin)
+                implementation(libs.sql.native.driver)
+                implementation(libs.stately.common)
             }
         }
 
@@ -78,5 +89,13 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+}
+
+sqldelight {
+    databases {
+        create(name = "DailyPulseDatabase") {
+            packageName.set("com.marcoantonio95.dailypulse.db")
+        }
     }
 }

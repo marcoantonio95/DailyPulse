@@ -1,0 +1,8 @@
+package com.marcoantonio95.dailypulse.db
+
+import app.cash.sqldelight.db.SqlDriver
+import app.cash.sqldelight.driver.native.NativeSqliteDriver
+
+actual class DatabaseDriverFactory {
+    actual fun createDriver(): SqlDriver = NativeSqliteDriver(DailyPulseDatabase.Schema, "DailyPulseDatabase.Database.db")
+}

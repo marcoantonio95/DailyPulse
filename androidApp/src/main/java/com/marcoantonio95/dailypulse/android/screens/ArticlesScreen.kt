@@ -33,24 +33,24 @@ import coil.compose.AsyncImage
 import com.marcoantonio95.dailypulse.articles.Article
 import com.marcoantonio95.dailypulse.articles.ArticlesViewModel
 import org.koin.androidx.compose.getViewModel
+import com.google.accompanist.swiperefresh.SwipeRefresh
+import com.google.accompanist.swiperefresh.SwipeRefreshState
 
 @Composable
 fun ArticlesScreen(
     onAboutButtonClick: () -> Unit,
-    articlesViewModel: ArticlesViewModel = getViewModel()) {
+    articlesViewModel: ArticlesViewModel = getViewModel()
+) {
 
     val articleState = articlesViewModel.articleState.collectAsState()
 
     Column {
         AppBar(onAboutButtonClick)
-        if (articleState.value.loading) {
-            Loader()
-        }
         if (articleState.value.error != null) {
             ErrorMessage(articleState.value.error!!)
         }
         if (articleState.value.articles.isNotEmpty()) {
-            ArticlesListView(articlesViewModel.articleState.value.articles)
+            ArticlesListView(articlesViewModel)
         }
     }
 }
@@ -72,23 +72,11 @@ private fun AppBar(onAboutButtonClick: () -> Unit) {
 }
 
 @Composable
-fun Loader() {
+fun ErrorMessage(message: String) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        CircularProgressIndicator(
-            modifier = Modifier.width(64.dp),
-            color = MaterialTheme.colorScheme.surfaceVariant,
-            trackColor = MaterialTheme.colorScheme.secondary
-        )
-    }
-}
-
-@Composable
-fun ErrorMessage(message: String) {
-    Box(modifier = Modifier.fillMaxSize(),
-    contentAlignment = Alignment.Center) {
         Text(
             text = message,
             style = TextStyle(fontSize = 28.sp, textAlign = TextAlign.Center)
@@ -97,23 +85,29 @@ fun ErrorMessage(message: String) {
 }
 
 @Composable
-fun ArticlesListView(articles: List<Article>) {
-    LazyColumn(modifier = Modifier.fillMaxSize()) {
-        items(articles) { article ->
-            ArticleItemView(article = article)
+fun ArticlesListView(viewModel: ArticlesViewModel) {
+    SwipeRefresh(state = SwipeRefreshState(viewModel.articleState.value.loading), onRefresh = {
+        viewModel.getArticles(forceFetch = true)
+    }) {
+        LazyColumn(modifier = Modifier.fillMaxSize()) {
+            items(viewModel.articleState.value.articles) { article ->
+                ArticleItemView(article = article)
+            }
         }
     }
 }
 
 @Composable
 fun ArticleItemView(article: Article) {
-    Column(modifier = Modifier
-        .fillMaxWidth()
-        .padding(16.dp)) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp)
+    ) {
         AsyncImage(
             model = article.imageUrl,
             contentDescription = null
-            )
+        )
         Text(
             text = article.title,
             style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 22.sp),
