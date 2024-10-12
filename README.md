@@ -19,8 +19,7 @@ Funcionalidades:
 - Atualização automática do conteúdo.
 
 Como Executar:
-1. Clone o repositório:
-  -  git clone https://github.com/marcoantonio95/DailyPulse.git
+1. Clone o repositório.
 2. Abra o projeto no Android Studio ou Xcode.
 3. Sincronize as dependências.
 4. Execute no simulador ou dispositivo físico.
