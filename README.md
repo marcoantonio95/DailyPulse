@@ -1,25 +1,27 @@
-Descrição:
-- DailyPulse é um aplicativo multiplataforma desenvolvido para exibir as últimas notícias de uma API, com armazenamento local e apresentação eficiente de conteúdo. Esse projeto foi criado como parte de um estudo em Kotlin Multiplatform (KMP) e SwiftUI para aprimorar minhas habilidades em desenvolvimento de aplicativos multiplataforma.
+# DailyPulse
 
-Motivação:
-- O objetivo do DailyPulse foi explorar a integração entre KMP, Compose e SwiftUI, criando uma solução para acessar e visualizar notícias de maneira rápida e simples. A ideia central era criar um app que funcionasse de forma nativa em diferentes plataformas com um único código-base, mantendo a performance e usabilidade.
+## Overview
+- DailyPulse is a cross-platform mobile app designed to fetch the latest news from an API, store the data locally, and present it in an intuitive interface. This project was built to enhance my skills in Kotlin Multiplatform (KMP) and SwiftUI, focusing on cross-platform app development.
 
-Tecnologias Utilizadas:
-- Kotlin Multiplatform (KMP): Compartilhamento de lógica de negócios entre Android e iOS.
-- Jetpack Compose: Construção da interface do usuário no Android.
-- SwiftUI: Interface do usuário no iOS.
-- SQLDelight Database: Armazenamento local das notícias.
-- Ktor: Consumo de API de notícias.
-- Koin: Gestão de injeção de dependências .
+## Motivation
+- The goal of DailyPulse was to explore the integration of KMP, Compose, and SwiftUI while creating a smooth experience for fetching and displaying news. The challenge was to build a native-feeling app that works seamlessly on both Android and iOS with a shared codebase, ensuring high performance and usability.
 
-Funcionalidades:
-- Consumo de API de notícias.
-- Armazenamento offline das notícias localmente.
-- Interface otimizada para Android e iOS.
-- Atualização automática do conteúdo.
+## Technologies Used
+- Kotlin Multiplatform (KMP): Shared business logic across Android and iOS.
+- Jetpack Compose: UI implementation for Android.
+- SwiftUI: UI implementation for iOS.
+- SQLDelight Database: Local storage of fetched news.
+- Ktor: API requests and data fetching.
+- Koin: Manage dependency injection.
 
-Como Executar:
-1. Clone o repositório.
-2. Abra o projeto no Android Studio ou Xcode.
-3. Sincronize as dependências.
-4. Execute no simulador ou dispositivo físico.
+## Features
+- Fetches the latest news from an API.
+- Offline storage for viewing news without an internet connection.
+- Optimized UI for both Android and iOS platforms.
+- Automatic updates with the latest content.
+
+## How to Run
+1. Clone the repository. `https://github.com/marcoantonio95/DailyPulse.git`
+2. Open the project in Android Studio or Xcode.
+3. Sync the project dependencies.
+4. Run the app on a physical device or emulator.
